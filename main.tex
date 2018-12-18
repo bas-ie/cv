@@ -83,14 +83,18 @@
 % for example, change the margins to 2 inches all round
 \geometry{top=1.75cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
 
+% support links
 \usepackage{hyperref}
+
+% prevent hyphenation
+\usepackage[none]{hyphenat}
 
 %use customized header
 \usepackage{fancyhdr}				
 \pagestyle{fancy}
 
 %less space between header and content
-\setlength{\headheight}{-5pt}		
+\setlength{\headheight}{0pt}		
 
 
 %customize entries left, center and right
@@ -244,14 +248,14 @@
 \newcommand{\cvevent}[5]
 {
 \vspace{8pt}
-	\begin{tabular*}{1\textwidth}{p{2.3cm}  p{10.8cm} x{3.9cm}}
+	\begin{tabular*}{1\textwidth}{p{3.5cm}  p{9.6cm} x{3.9cm}}
  \textcolor{bgcol}{#1}& \textbf{#2} & \vspace{2.5pt}\textcolor{sectcol}{#3}
 
 	\end{tabular*}
 \vspace{-12pt}
 \textcolor{softcol}{\hrule}
 \vspace{6pt}
-	\begin{tabular*}{1\textwidth}{p{2.3cm} p{14.4cm}}
+	\begin{tabular*}{1\textwidth}{p{3.5cm} p{13.2cm}}
 &		 \larrow{bgcol}  #4\\[3pt]
 &		 \larrow{bgcol}  #5\\[6pt]
 	\end{tabular*}
@@ -346,32 +350,32 @@
 \cvsection{Experience}
 
 %
-\cvevent{Aug 2018}{Teacher/Developer}{Enspiral Dev Academy}{Back at EDA to help out with some technical training during a new teacher's transition into the role.}{Re-writing and updating challenges (that ever-shifting target, modern JavaScript), curriculum development and refinement.}
+\cvevent{Aug 2018 - Present}{Teacher/Developer}{Enspiral Dev Academy}{Back at EDA to help out with some technical training during a new teacher's transition into the role.}{Re-writing and updating challenges (that ever-shifting target, modern JavaScript), curriculum development and refinement.}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{2018 / 09}{Mobile Developer}{Te Hiku Media}{Really interesting contract project for a non-profit to develop a mobile interface to an existing AI, training it to transcribe spoken Māori language to text.}{React Native, offline caching, recording and processing audio files, interfacing with a Django API.}
+\cvevent{Sep 2018}{Mobile Developer (side-contract)}{Te Hiku Media}{Really interesting contract project for a non-profit to develop a mobile interface to an existing AI, training it to transcribe spoken Māori language to text.}{React Native, offline caching, recording and processing audio files, interfacing with a Django API.}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{Mar 2017}{Developer}{Hylo}{Working on a distributed/remote team based out of the San Francisco bay area, developing a messaging and collaboration tool for purpose-driven communities.}{Across all parts of the stack but especially lots of mobile with React Native, solving performance problems and some tricky deep-linking issues.}
+\cvevent{Mar 2017 - Aug 2018}{Developer}{Hylo}{Working on a distributed/remote team based out of the San Francisco bay area, developing a messaging and collaboration tool for purpose-driven communities.}{Across all parts of the stack but especially lots of mobile with React Native, solving performance problems and some tricky deep-linking issues.}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{May 2016}{Teacher/Developer}{Enspiral Dev Academy}{Full-immersion JavaScript bootcamp-style training with an emphasis on Human Skills, self-awareness and ability to work in teams. Teaching and developing curriculum for a diverse population of students with little technical background.}{Wrote a command-line tool to publish a series of GitHub issues from local Markdown files and assign them to individual student GitHub accounts, for viewing on \href{https://waffle.io.}{\textcolor{blue}{waffle.io}}.}
+\cvevent{May 2016 - Mar 2017}{Teacher/Developer}{Enspiral Dev Academy}{Full-immersion JavaScript bootcamp-style training with an emphasis on Human Skills, self-awareness and ability to work in teams. Teaching and developing curriculum for a diverse population of students with little technical background.}{Wrote a command-line tool to publish a series of GitHub issues from local Markdown files and assign them to individual student GitHub accounts, for viewing on \href{https://waffle.io.}{\textcolor{blue}{waffle.io}}.}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{Feb 2016}{Developer}{Saatchi \& Saatchi}{Front end development on web project for an interesting and prominent Kiwi brand with a great team.}{Wrote a budgeting tool front-end using Angular, Sass, with a SilverStripe (PHP) back end. Jira/Bitbucket.}
+\cvevent{Feb 2016 - May 2016}{Developer}{Saatchi \& Saatchi}{Front end development on web project for an interesting and prominent Kiwi brand with a great team.}{Wrote a budgeting tool front-end using Angular, Sass, with a SilverStripe (PHP) back end. Jira/Bitbucket.}
 
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{Oct 2015}{Developer}{BKA Digital Outfitters}{Website and web application development for major local brands. C\#.NET, Angular, TypeScript, SQLServer, Azure, Node.}{Worked on a mechanic/auto repair management SaaS designed for tablet devices to be used in the workshop.}
+\cvevent{Oct 2015 - Feb 2016}{Developer}{BKA Digital Outfitters}{Website and web application development for major local brands. C\#.NET, Angular, TypeScript, SQLServer, Azure, Node.}{Worked on a mechanic/auto repair management SaaS designed for tablet devices to be used in the workshop.}
 
 %\textcolor{softcol}{\hrule}
 
@@ -379,11 +383,12 @@
 \cvevent{Oct 2015}{Developer}{HYPR}{Wrote workshop curriculum, "The Nature of JavaScript", for \textit{API Days 2015} conference. Developed a multiplayer HTTP API-based game for attendees.}{Node, Express, MongoDB, Cloud9, Gulp, Babel, Mocha, Chai, Supertest.}
 
 \clearpage
+
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{Jun 2003}{Paediatric Intensive Care Nurse}{Starship Hospital}{Starship PICU is the "ambulance at the bottom of the cliff" for critically ill babies and children in New Zealand.}{Flight nurse on the transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust, sometimes working with relatively inexperienced doctors in critical circumstances.}
- 
+
+\cvevent{2003 - 2015}{Paediatric Intensive Care Nurse}{Starship Hospital}{Starship PICU is the "ambulance at the bottom of the cliff" for critically ill babies and children in New Zealand.}{Flight nurse on the transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust, sometimes working with relatively inexperienced doctors in critical circumstances.}
 %---------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %--------------------------------------------------------------------------------------
@@ -394,7 +399,7 @@
 %\textcolor{softcol}{\hrule}
 
 %
-\cvevent{1998}{Bachelor of Nursing}{Otago Polytechnic}{New Zealand's comprehensive nursing degree.}{Mixture of hospital-based and classroom training.}
+\cvevent{1996 - 1998}{Bachelor of Nursing}{Otago Polytechnic}{New Zealand's comprehensive nursing degree.}{Mixture of hospital-based and classroom training.}
 
 \cvsection{References}
 
