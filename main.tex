@@ -1,446 +1,297 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2015 Jan Küster
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+%-------------------------------------
 
+\documentclass[12pt]{article}
+\usepackage[letterpaper]{geometry}
 
-%============================================================================%
-%
-%	DOCUMENT DEFINITION
-%
-%============================================================================%
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage[xetex]{hyperref}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[pdftex]{hyperref}
+\fi
+\usepackage{fontawesome}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+\usepackage{tabularx}
 
-%we use article class because we want to fully customize the page and dont use a cv template
-\documentclass[10pt,a4paper]{article}	
+\def \fullname {Rich Churcher}
+\def \subtitle {Senior Platform Engineer}
 
+\def \linkedinicon {\faLinkedin}
+\def \linkedinlink {https://linkedin.com/in/dwight-schrute/}
+\def \linkedintext {/richchurcher}
 
-%----------------------------------------------------------------------------------------
-%	ENCODING
-%----------------------------------------------------------------------------------------
+\def \phoneicon {\faPhone}
+\def \phonetext {+64-21-126-3919}
 
-%we use utf8 since we want to build from any machine
-\usepackage[utf8]{inputenc}		
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:rich.churcher@gmail.com}
+\def \emailtext {rich.churcher@gmail.com}
 
-%----------------------------------------------------------------------------------------
-%	LOGIC
-%----------------------------------------------------------------------------------------
+\def \githubicon {\faGithub}
+\def \githublink {https://github.com/richchurcher}
+\def \githubtext {/richchurcher}
 
-% provides \isempty test
-\usepackage{xifthen}
+% \def \websiteicon {\faGlobe}
+% \def \websitelink {https://google.com/}
+% \def \websitetext {richchurcher.me}
 
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
+\def \headertype {\doublecol} % \singlecol or \doublecol
 
-% some tex-live fonts - choose your own
+\def \entryspacing {-0em}
 
-%\usepackage[defaultsans]{droidsans}
-%\usepackage[default]{comfortaa}
-%\usepackage{cmbright}
-\usepackage[default]{raleway}
-%\usepackage{fetamont}
-%\usepackage[default]{gillius}
-%\usepackage[light,math]{iwona}
-%\usepackage[thin]{roboto} 
+\def \bulletstyle {\faAngleRight}
 
-% set font default
-\renewcommand*\familydefault{\sfdefault} 	
-\usepackage[T1]{fontenc}
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{138a07}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{003200}
 
-% more font size definitions
-\usepackage{moresize}		
+\def \linkedin {\linkedinicon \hspace{1em}\href{\linkedinlink}{\linkedintext}}
+\def \phone {\phoneicon \hspace{1em}{\phonetext}}
+\def \email {\emailicon \hspace{1em}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{1em}\href{\githublink}{\githubtext}}
+% \def \website {\websiteicon \hspace{1em}\href{\websitelink}{\websitetext}}
 
+% margins
+\addtolength{\oddsidemargin}{-14mm}
+\addtolength{\evensidemargin}{-14mm}
+\addtolength{\textwidth}{28mm}
+\addtolength{\topmargin}{-16mm}
+\addtolength{\textheight}{28mm}
 
-%----------------------------------------------------------------------------------------
-%	PAGE LAYOUT  DEFINITIONS
-%----------------------------------------------------------------------------------------
-
-%debug page outer frames
-%\usepackage{showframe}			
-
-
-%define page styles using geometry
-\usepackage[a4paper]{geometry}		
-
-% for example, change the margins to 2 inches all round
-\geometry{top=1.75cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
-
-% support links
-\usepackage{hyperref}
-
-% prevent hyphenation
-\usepackage[none]{hyphenat}
-
-%use customized header
-\usepackage{fancyhdr}				
-\pagestyle{fancy}
-
-%less space between header and content
-\setlength{\headheight}{0pt}		
-
-
-%customize entries left, center and right
-\lhead{}
-\chead{ \small{Rich Churcher  $\cdot$ Senior Software Engineer $\cdot$  Auckland, New Zealand  $\cdot$  \textcolor{sectcol}{\href{mailto:rich.churcher@gmail.com}{\textbf{rich.churcher@gmail.com}}}  $\cdot$ +64 211 263 919}}
-\rhead{}
-
-
-%indentation is zero
-\setlength{\parindent}{0mm}
-
-%----------------------------------------------------------------------------------------
-%	TABLE /ARRAY DEFINITIONS
-%---------------------------------------------------------------------------------------- 
-
-%for layouting tables
-\usepackage{multicol}			
-\usepackage{multirow}
-
-%extended aligning of tabular cells
-\usepackage{array}
-
-\newcolumntype{x}[1]{%
->{\raggedleft\hspace{0pt}}p{#1}}%
-
-
-%----------------------------------------------------------------------------------------
-%	GRAPHICS DEFINITIONS
-%---------------------------------------------------------------------------------------- 
-
-%for header image
-\usepackage{graphicx}
-
-%for floating figures
-\usepackage{wrapfig}
-\usepackage{float}
-%\floatstyle{boxed} 
-%\restylefloat{figure}
-
-%for drawing graphics		
-\usepackage{tikz}				
-\usetikzlibrary{shapes, backgrounds,mindmap, trees}
-
-
-%----------------------------------------------------------------------------------------
-%	Color DEFINITIONS
-%---------------------------------------------------------------------------------------- 
-
-\usepackage{color}
-
-%accent color
-\definecolor{sectcol}{RGB}{255,150,0}
-
-%dark background color
-\definecolor{bgcol}{RGB}{110,110,110}
-
-%light background / accent color
-\definecolor{softcol}{RGB}{225,225,225}
-
-
-%============================================================================%
-%
-%
-%	DEFINITIONS
-%
-%
-%============================================================================%
-
-%----------------------------------------------------------------------------------------
-% 	HEADER
-%----------------------------------------------------------------------------------------
-
-% remove top header line
-\renewcommand{\headrulewidth}{0pt} 
-
-%remove botttom header line
-\renewcommand{\footrulewidth}{0pt}	  	
-
-%remove pagenum
-\renewcommand{\thepage}{}	
-
-%remove section num		
-\renewcommand{\thesection}{}			
-
-%----------------------------------------------------------------------------------------
-% 	ARROW GRAPHICS in Tikz
-%----------------------------------------------------------------------------------------
-
-% a six pointed arrow poiting to the left
-\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
-
-% include the left arrow into a tikz picture
-% param1: fill color
-%
-\newcommand{\larrow}[1]
-{\begin{tikzpicture}[scale=0.58]
-	 \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
- \end{tikzpicture}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
 }
 
-% a six pointed arrow poiting to the right
-\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0mm}
 
-% include the right arrow into a tikz picture
-% param1: fill color
-%
-\newcommand{\rarrow}
-{\begin{tikzpicture}[scale=0.7]
-	\filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
- \end{tikzpicture}
+% sections
+\renewcommand{\section}[2]{\vspace{0.5ex}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{0.5em}#2}}}
 }
 
+% entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
 
+% lists
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=4.5mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
 
-%----------------------------------------------------------------------------------------
-%	custom sections
-%----------------------------------------------------------------------------------------
-
-% create a coloured box with arrow and title as cv section headline
-% param 1: section title
-%
-\newcommand{\cvsection}[1]
-{
-\colorbox{sectcol}{\mystrut \makebox[1\linewidth][l]{
-\larrow{bgcol} \hspace{-8pt} \larrow{bgcol} \hspace{-8pt} \larrow{bgcol} \textcolor{white}{\textbf{#1}}\hspace{4pt}
-}}\\
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-0.9ex}}
+  }
 }
 
-%create a coloured arrow with title as cv meta section section
-% param 1: meta section title
-%
-\newcommand{\metasection}[2]
-{
-\begin{tabular*}{1\textwidth}{p{2.4cm} p{14cm}}
-\larrow{bgcol}	\normalsize{\textcolor{sectcol}{#1}}&#2\\[12pt]
-\end{tabular*}
+% entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-0.5ex}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{5em}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabularx}\vspace{-0.9ex}
 }
 
-%----------------------------------------------------------------------------------------
-%	 CV EVENT
-%----------------------------------------------------------------------------------------
-
-% creates a stretched box as cv entry headline followed by two paragraphs about 
-% the work you did
-% param 1:	event time i.e. 2014 or 2011-2014 etc.
-% param 2:	event name (what did you do?)
-% param 3:	institution (where did you work / study)
-% param 4:	what was your position
-% param 5:	some words about your contributions
-%
-\newcommand{\cvevent}[5]
-{
-\vspace{8pt}
-	\begin{tabular*}{1\textwidth}{p{3.5cm}  p{9.6cm} x{3.9cm}}
- \textcolor{bgcol}{#1}& \textbf{#2} & \vspace{2.5pt}\textcolor{sectcol}{#3}
-
-	\end{tabular*}
-\vspace{-12pt}
-\textcolor{softcol}{\hrule}
-\vspace{6pt}
-	\begin{tabular*}{1\textwidth}{p{3.5cm} p{13.2cm}}
-&		 \larrow{bgcol}  #4\\[3pt]
-&		 \larrow{bgcol}  #5\\[6pt]
-	\end{tabular*}
-
+% entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-0.5ex}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{5em}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabularx}\vspace{-0.9ex}
 }
 
-% creates a stretched box as 
-\newcommand{\cveventmeta}[2]
-{
-	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
-	#2
+% double column header
+\newcommand{\doublecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+          {\textit{\subtitle}}
+      \end{tabular}\vspace{2ex}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1em}}l}
+        {\small#4} & {\small#1} \\
+        {\small#5} & {\small#2} \\
+        {\small#6} & {\small#3}
+      \end{tabular}
+    }
+  \end{tabularx}
 }
 
-%----------------------------------------------------------------------------------------
-% CUSTOM STRUT FOR EMPTY BOXES
-%----------------------------------------- -----------------------------------------------
-\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+% single column header
+\newcommand{\singlecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l}
+        {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5} \\
+        {\small#6}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
 
-%----------------------------------------------------------------------------------------
-% CUSTOM LOREM IPSUM
-%----------------------------------------------------------------------------------------
-\newcommand{\lorem}
-{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.}
-
-
-
-%============================================================================%
-%
-%
-%
-%	DOCUMENT CONTENT
-%
-%
-%
-%============================================================================%
 \begin{document}
 
+% \headertype{\linkedin}{\github}{\website}{\phone}{\email}{}
+\headertype{\linkedin}{\github}{}{\phone}{\email}{}
 
-%use our custom fancy header definitions
-\pagestyle{fancy}	
+\section{\faPieChart}{Experience}
 
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Cogo}{Dec 2022 -- Present}
+      {Senior Platform Engineer}{Remote}
+    \resumeItemListStart
+      \resumeItem {Reduced development environment costs by more than half in some cases using Terraform to conduct timed teardowns via GitHub Actions.}
+      \resumeItem {Increased the observability of costs across AWS accounts using Python and the AWS API.}
+      \resumeItem {Negotiated, planned, and rewrote on-call and incident management documentation, making the on-call engineering experience safer and more predictable.}
+      \resumeItem {Created a Terraform module to add DKIM and SPF email authentication to any subdomain using Route53 and SES.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-%---------------------------------------------------------------------------------------
-%	TITLE HEADLINE
-%----------------------------------------------------------------------------------------
-\vspace{-20.55pt}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Spidertracks}{Apr 2021 -- Dec 2022}
+      {Senior Software Engineer}{Remote}
+    \resumeItemListStart
+      \resumeItem {Mapped network ingress from Iridium satellites and cellular devices through a maze of legacy infrastructure to mitigate poor characteristics of a Java server under load.}
+      \resumeItem {Rebuilt on-call team and ops culture from the ground up after company was acquired.}
+      \resumeItem {Manged a wide variety of AWS infrastructure including EC2, Lambda, RDS, DynamoDB, Kinesis, Redshift, EventBridge, IoT Core.}
+      \resumeItem {Significantly improved the overall observability picture, including centralising scattered elements of New Relic, Grafana, CloudWatch, Sumologic, and Sentry, laying the groundwork for an eventual migration to a "single pane of glass".}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-% use this for multiple words like working titles etc.
-%\hspace{-0.25\linewidth}\colorbox{bgcol}{\makebox[1.5\linewidth][c]{\hspace{46pt}\HUGE{\textcolor{white}{\textsc{Jan Küster}} } \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \parbox[b]{5cm}{   \large{ \textcolor{white}{{IT Consultant}}}\\
-% \large{ \textcolor{white}{{Resume}}}}
-%}}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Eventfinda}{Nov 2020 -- Apr 2021}
+      {Senior Software Engineer (Contract)}{Remote}
+    \resumeItemListStart
+        \resumeItem {Assisted with and advised on upgrading a large existing codebase (React, PHP).}
+        \resumeItem {Improved test coverage of legacy code in order to avoid regressions when migrating to newer systems.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-% use this for single words, e.g. CV or RESUME etc.
-\hspace{-0.25\linewidth}\colorbox{bgcol}{\makebox[1.5\linewidth][c]{\HUGE{\textcolor{white}{\textsc{Rich Churcher}} } \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \HUGE{\textcolor{white}{\textsc{Resume}} } }}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {BuildSpider}{Sep 2019 -- Nov 2020}
+      {Senior Software Engineer (Contract)}{Remote}
+    \resumeItemListStart
+      \resumeItem {Wrote extensive Postgres functions and migrations as part of a GraphQL API using Postgraphile.}
+      \resumeItem {Added a secure S3-backed file library feature using React, Relay, and role-based permissions using Postgres row-level security.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {HYPR Innovation}{Feb 2019 -- Sep 2019}
+      {Senior Software Engineer (Contract)}{Remote}
+    \resumeItemListStart
+      \resumeItem {React, MobX frontend development.}
+      \resumeItem {Lots of microservice development (mostly in Node) leveraging Kafka to process animal data for a large agricorporation.}
+      \resumeItem {Coordinating with a wide variety of teams, each managing their own services, as well as a legacy team working in a completely separate hosted environment.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-%---------------------------------------------------------------------------------------
-%	QR CODE (optional)
-%----------------------------------------------------------------------------------------
-%\vspace{-136pt}
-%\hspace{0.75\linewidth}
-%\includegraphics[width=103pt]{qrcode}
-%\normalsize
-%\vspace{88pt}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Enspiral Dev Academy}{Aug 2018 -- Dec 2018}
+      {Teacher, Software Engineer}{Auckland}
+    \resumeItemListStart
+      \resumeItem {Coached students individually, and taught curriculum at the classroom level.}
+      \resumeItem {Wrote and updated curriculum (React/Node). Ran multi-day exercises in team software development.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-%---------------------------------------------------------------------------------------
-%	META SECTION
-%----------------------------------------------------------------------------------------
-\vspace{12pt}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Hylo}{Mar 2017 -- Aug 2018}
+      {Software Engineer (Contract)}{Remote (San Francisco)}
+    \resumeItemListStart
+      \resumeItem {Distributed team based out of the San Francisco bay area developing a messaging and collaboration tool for purpose-driven communities.}
+      \resumeItem {Worked particularly on the React Native mobile application. Solved some thorny performance problems and deep-linking bugs.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\metasection{Tech:}{Linux, AWS, Postgres, Infrastructure as Code, Observability. Python, TypeScript, Go, Rust, SQL, Bash. CloudFormation, CDK, Terraform, Docker.}
-\metasection{Human:}{Compassionate communicator. Mentorship and collaborative teaching. Good at making computers work for humans, not the other way around.}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Enspiral Dev Academy}{May 2016 -- Mar 2017}
+      {Teacher, Software Engineer (Contract)}{Auckland}
+  \resumeEntryEnd
 
-\vspace{6pt}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Saatchi \& Saatchi}{Feb 2016 -- May 2016}
+      {Software Engineer (Contract)}{Auckland}
+  \resumeEntryEnd
 
-%---------------------------------------------------------------------------------------
-%	SUMMARAY (optional)
-%----------------------------------------------------------------------------------------
-
-%\cvsection{Summary}\\
-%Digital media graduate with four years project experience in the field of technology based assessment. Specialized in development of test-scenario engines and innovative, rich media item formats. Master studies focused on teams from different disciplines and cultural backgrounds on solutions for complex problems.  Prior knowledge has been collected in he field of usability / accessibility during bachelor studies.\\
-
-%============================================================================%
-%
-%	CV SECTIONS AND EVENTS (MAIN CONTENT)
-%
-%============================================================================%
-
-%---------------------------------------------------------------------------------------
-%	EXPERIENCE
-%----------------------------------------------------------------------------------------
-\cvsection{Experience}
-
-%
-\cvevent{Apr 2021 - Present}{Senior Software Engineer}{Spidertracks}{An aircraft tracking, insights and safety platform for the general aviation market.}{Wide variety of AWS infrastructure, including EC2, Lambda, RDS, DynamoDB, Kinesis, Redshift, EventBridge, IoT Core. Mapped network ingress from Iridium satellites and cellular devices through a maze of legacy infrastructure to mitigate the behaviour of a Java application under load.  Instrumental in rebuilding an on-call team and ops culture from the ground up.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Nov 2020 - Apr 2021}{Developer}{Eventfinda}{Assisting with and advising on upgrading a large existing codebase.}{Node, React, AWS, MySQL, and even some PHP.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Sep 2019 - Nov 2020}{Developer}{BuildSpider}{Full-stack on BuildSpider, a construction management platform with a complex domain and lots to learn about!}{React, Relay, GraphQL with Postgraphile, plenty of custom Postgres function writing. Also taking the opportunity to update their documentation and streamline some E2E testing with Cypress.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Feb 2019 - Sep 2019}{Developer}{HYPR Innovation}{Microservice and serverless backends, React/MobX UIs. AWS Lambda, API Gateway, DynamoDB, Cognito, Amplify, TypeScript. 90\% remote/distributed team, lots of pairing and collaboration.}{Some fun projects including a large agricorporation and a much smaller healthcare startup. Plenty of room for learning in the Dockerised/container development space.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Aug 2018 - Dec 2018}{Teacher/Developer}{Enspiral Dev Academy}{Back at EDA to help out with some technical training during a new teacher's transition into the role.}{Re-writing and updating challenges (that ever-shifting target, modern JavaScript), curriculum development and refinement.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Sep 2018}{Mobile Developer (side-contract)}{Te Hiku Media}{Really interesting contract project for a non-profit to develop a mobile interface to an existing AI, training it to transcribe spoken Māori language to text.}{React Native, offline caching, recording and processing audio files, interfacing with a Django API.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Mar 2017 - Aug 2018}{Developer}{Hylo}{Working on a distributed/remote team based out of the San Francisco bay area, developing a messaging and collaboration tool for purpose-driven communities.}{Across all parts of the stack but especially lots of mobile with React Native, solving performance problems and some tricky deep-linking issues.}
-
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{May 2016 - Mar 2017}{Teacher/Developer}{Enspiral Dev Academy}{Full-immersion JavaScript bootcamp-style training with an emphasis on Human Skills, self-awareness and ability to work in teams. Teaching and developing curriculum for a diverse population of students with little technical background.}{Wrote a command-line tool to publish a series of GitHub issues from local Markdown files and assign them to individual student GitHub accounts, for viewing on \href{https://waffle.io.}{\textcolor{blue}{waffle.io}}.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Feb 2016 - May 2016}{Developer}{Saatchi \& Saatchi}{Front end development on web project for an interesting and prominent Kiwi brand with a great team.}{Wrote a budgeting tool front-end using Angular, Sass, with a SilverStripe (PHP) back end. Jira/Bitbucket.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Oct 2015 - Feb 2016}{Developer}{BKA Digital Outfitters}{Website and web application development for major local brands. C\#.NET, Angular, TypeScript, SQLServer, Azure, Node.}{Worked on a mechanic/auto repair management SaaS designed for tablet devices to be used in the workshop.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{Oct 2015}{Developer}{HYPR}{Wrote workshop curriculum, "The Nature of JavaScript", for \textit{API Days 2015} conference. Developed a multiplayer HTTP API-based game for attendees.}{Node, Express, MongoDB, Cloud9, Gulp, Babel, Mocha, Chai, Supertest.}
-
-%\textcolor{softcol}{\hrule}
-
-%
-\cvevent{2003 - 2015}{Paediatric Intensive Care Nurse}{Starship Hospital}{Starship PICU is the "ambulance at the bottom of the cliff" for critically ill babies and children in New Zealand.}{Flight nurse on the transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust, sometimes working with relatively inexperienced doctors in critical circumstances.}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {BKA Digital Outfitters}{Oct 2015 -- Feb 2016}
+      {Software Engineer (Contract)}{Auckland}
+  \resumeEntryEnd
 
 
-%---------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%--------------------------------------------------------------------------------------
-\cvsection{Education}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Starship Hospital}{2003 -- 2015}
+      {Paediatric Intensive Care Nurse}{Auckland}
+    \resumeItemListStart
+      \resumeItem {Flight nurse on the PICU transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust in critical circumstances.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\cvevent{2015}{Web Development Bootcamp}{Enspiral Dev Academy}{Attended this bootcamp as a way to break into the local software industry, and as an opportunity to learn more about the .NET stack which they were teaching at the time (they have since moved on to Node).}{Pair programming, "engineering empathy", VCS, introductory automated testing, pitching and presentation.}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Royal Alexandra Hospital for Children}{May 1999 -- May 2003}
+      {Registered Nurse, PICU Nurse}{Sydney}
+  \resumeEntryEnd
 
-%\textcolor{softcol}{\hrule}
+\section{\faFlask}{Bucket}
 
-%
-\cvevent{1996 - 1998}{Bachelor of Nursing}{Otago Polytechnic}{New Zealand's comprehensive nursing degree.}{Mixture of hospital-based and classroom training.}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Bucket}{Apr 2022 -- Present}
+      {Senior Software Engineer (Volunteer)}{Remote}
+    \resumeItemListStart
+      \resumeItem {Sole developer and platform engineer for Fairground Foundation, working on Bucket, an environment crowdfunding application.}
+      \resumeItem {Wrote a Go API that implements the JSON:API standard using ECS, RDS (Postgres), sqlc, and Chi.}
+      \resumeItem {Built a cross-platform Flutter application implementing a Figma design, using modern state management tools.}
+      \resumeItem {Terraformed the lot using a low-cost strategy to avoid excessive outlays during the pre-launch phase.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\cvsection{References on request}
+\section{\faGraduationCap}{Education}
 
-%-------------------------------------------------------------------------------------------------
-%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
-%--------------------------------------------------------------------------------------------------
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Otago Polytechnic}{1996 -- 1998}
+      {Bachelor of Nursing}{Dunedin}
+  \resumeEntryEnd
 
-\null
-\vspace*{\fill}
-\hspace{-0.25\linewidth}\colorbox{bgcol}{\makebox[1.5\linewidth][c]{\mystrut \small \href{https://github.com/richchurcher}{\textcolor{white}{github.com/richchurcher}} $\cdot$ \href{https://www.linkedin.com/in/richchurcher}{\textcolor{white}{linkedin.com/in/richchurcher}}}}
-
-
-
-
-%============================================================================%
-%
-%
-%
-%	DOCUMENT END
-%
-%
-%
-%============================================================================%
 \end{document}
