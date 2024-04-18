@@ -84,9 +84,15 @@
   \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{0.5em}#2}}}
 }
 
-% entries
-\newcommand{\resumeEntry}[1]{\begin{itemize}[leftmargin=2.5mm]#1\end{itemize}}
-\newcommand{\resumeItemList}[1]{\begin{itemize}[leftmargin=4.5mm]#1\end{itemize}}
+% entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
+
+% lists
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=4.5mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% Resume item
 \renewcommand{\labelitemii}{\bulletstyle}
 \newcommand{\resumeItem}[1]{
   \item\small{
@@ -157,135 +163,146 @@
 
 \section{\faPieChart}{Experience}
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
-      {Cogo}{Dec 2022 -- Present}
+      {Lightspeed Commerce}{Oct 2023 -- Present}
       {Senior Platform Engineer}{Remote}
-    \resumeItemList{
-      \resumeItem {Reduced costs significantly across all test environments by optimising resource utilisation and setting up automated, scheduled teardowns of environments using Terraform via GitHub Actions.}
-      \resumeItem {Increased the observability of costs across AWS accounts using Python, GitHub Actions and the AWS API. This was targeted to each individual team yielding continuous improvements in cost management.}
-      \resumeItem {Responded to incidents and pipeline blockages across the organisation.}
-      \resumeItem {Mentored more junior team members in AWS, infrastructure as code, and CI/CD.}
-      \resumeItem {Performed the majority of the internal audit for ISO27001 certification, providing feedback that contributed to a smooth and successful approval process.}
-    }
-  }
+    \resumeItemListStart
+      \resumeItem {Wrote automated tooling in Go to traverse hundreds of GitHub repositories to update versions and configuration values.}
+      \resumeItem {Repaired technical debt/broken builds, negotiating with teams to find the correct solution for technical debt/disused workflows.}
+      \resumeItem {Implemented a custom GitHub runner to launch ops tasks in the production environment (database maintenance, new Kafka topics) reducing maintenance time and unblocking developer workflows.}
+    \resumeItemListEnd
+  \resumeEntryEnd
+  
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Cogo}{Dec 2022 -- Oct 2023}
+      {Senior Platform Engineer}{Remote}
+    \resumeItemListStart
+      \resumeItem {Reduced development environment costs by more than half in some cases using Terraform to conduct timed teardowns via GitHub Actions.}
+      \resumeItem {Increased the observability of costs across AWS accounts using Python and the AWS API.}
+      \resumeItem {Negotiated, planned, and rewrote on-call and incident management documentation, making the on-call engineering experience safer and more predictable.}
+      \resumeItem {Troubleshoot CI, deployment and runtime issues in a containerised Elixir (Phoenix) environment.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Spidertracks}{Apr 2021 -- Dec 2022}
       {Senior Software Engineer}{Remote}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Mapped network ingress from Iridium satellites and cellular devices through a maze of legacy infrastructure to mitigate poor characteristics of a Java server under load.}
       \resumeItem {Rebuilt on-call team and ops culture from the ground up after company was acquired.}
       \resumeItem {Managed a wide variety of AWS infrastructure including EC2, Lambda, RDS, DynamoDB, Kinesis, Redshift, EventBridge, IoT Core.}
       \resumeItem {Significantly improved the overall observability picture, including centralising scattered elements of New Relic, Grafana, CloudWatch, Sumologic, and Sentry, laying the groundwork for an eventual migration to a "single pane of glass".}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Eventfinda}{Nov 2020 -- Apr 2021}
       {Senior Software Engineer (Contract)}{Remote}
-    \resumeItemList{
+    \resumeItemListStart
         \resumeItem {Assisted with and advised on upgrading a large existing codebase (React, PHP).}
         \resumeItem {Improved test coverage of legacy code in order to avoid regressions when migrating to newer systems.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {BuildSpider}{Sep 2019 -- Nov 2020}
       {Senior Software Engineer (Contract)}{Remote}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Wrote extensive Postgres functions and migrations as part of a GraphQL API using Postgraphile.}
       \resumeItem {Added a secure S3-backed file library feature using React, Relay, and role-based permissions using Postgres row-level security.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {HYPR Innovation}{Feb 2019 -- Sep 2019}
       {Senior Software Engineer (Contract)}{Remote}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {React, MobX frontend development.}
       \resumeItem {Lots of microservice development (mostly in Node) leveraging Kafka to process animal data for a large agricorporation.}
       \resumeItem {Coordinating with a wide variety of teams, each managing their own services, as well as a legacy team working in a completely separate hosted environment.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Enspiral Dev Academy}{Aug 2018 -- Dec 2018}
       {Teacher, Software Engineer}{Auckland}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Coached students individually, and taught curriculum at the classroom level.}
       \resumeItem {Wrote and updated curriculum (React/Node). Ran multi-day exercises in team software development.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Hylo}{Mar 2017 -- Aug 2018}
       {Software Engineer (Contract)}{Remote (San Francisco)}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Distributed team based out of the San Francisco bay area developing a messaging and collaboration tool for purpose-driven communities.}
       \resumeItem {Worked particularly on the React Native mobile application. Solved some thorny performance problems and deep-linking bugs.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Enspiral Dev Academy}{May 2016 -- Mar 2017}
       {Teacher, Software Engineer (Contract)}{Auckland}
-  }
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Saatchi \& Saatchi}{Feb 2016 -- May 2016}
       {Software Engineer (Contract)}{Auckland}
-  }
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {BKA Digital Outfitters}{Oct 2015 -- Feb 2016}
       {Software Engineer (Contract)}{Auckland}
-  }
+  \resumeEntryEnd
 
-  \resumeEntry{
+
+  \resumeEntryStart
     \resumeEntryTSDL
       {Starship Hospital}{2003 -- 2015}
       {Paediatric Intensive Care Nurse}{Auckland}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Flight nurse on the PICU transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust in critical circumstances.}
-    }
-  }
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Royal Alexandra Hospital for Children}{May 1999 -- May 2003}
       {Registered Nurse, PICU Nurse}{Sydney}
-  }
+  \resumeEntryEnd
 
 \section{\faFlask}{Projects}
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Bucket}{Apr 2022 -- Present}
       {Senior Software Engineer (Volunteer)}{Remote}
-    \resumeItemList{
+    \resumeItemListStart
       \resumeItem {Sole developer and platform engineer for Fairground Foundation, working on Bucket, an environment crowdfunding application.}
       \resumeItem {Wrote a Go API that implements the JSON:API standard using ECS, RDS (Postgres), sqlc, and Chi.}
       \resumeItem {Built a cross-platform Flutter application implementing a Figma design, using modern state management tools.}
-      \resumeItem {Terraformed it all using a low-cost strategy to avoid excessive outlays during the pre-launch phase.}
-    }
-  }
+      \resumeItem {Terraformed the lot using a low-cost strategy to avoid excessive outlays during the pre-launch phase.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
 \section{\faGraduationCap}{Education}
 
-  \resumeEntry{
+  \resumeEntryStart
     \resumeEntryTSDL
       {Otago Polytechnic}{1996 -- 1998}
       {Bachelor of Nursing}{Dunedin}
-  }
+  \resumeEntryEnd
 
 \end{document}
