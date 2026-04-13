@@ -25,7 +25,7 @@
 \usepackage{tabularx}
 
 \def \fullname {Rich Churcher}
-\def \subtitle {Senior Platform Engineer}
+\def \subtitle {Senior Platform / SRE}
 
 \def \linkedinicon {\faLinkedin}
 \def \linkedinlink {https://linkedin.com/in/dwight-schrute/}
@@ -161,6 +161,30 @@
 % \headertype{\linkedin}{\github}{\website}{\phone}{\email}{}
 \headertype{\linkedin}{\github}{}{\phone}{\email}{}
 
+\section{\faUser}{Profile}
+
+  \vspace{0.5ex}
+  \small Senior platform and site reliability engineer with 8+ years shipping and operating production systems on Linux and AWS.
+  \par\vspace{0.5ex}
+  Second career after 14 years as a paediatric intensive care nurse, including flight transport --- I bring clinical incident-response discipline to production operations: calm under load, bias to root cause, triage what matters first.
+  \par\vspace{0.5ex}
+  Self-taught, remote-first, and happiest in small teams where autonomy and pragmatism matter more than process.
+  \vspace{1ex}
+
+\section{\faWrench}{Skills}
+
+  \vspace{0.5ex}
+  \begin{tabularx}{\textwidth}{@{}l@{\hspace{1.5em}}X@{}}
+    \textbf{Cloud / Infra} & AWS (EC2, ECS, EKS, Lambda, RDS, DynamoDB, Kinesis, IoT Core, EventBridge), Terraform, Spacelift, Kubernetes. \\
+    \textbf{Languages}     & Go, Python, TypeScript, Rust, Bash, sundry others. \\
+    \textbf{Platform / CI} & GitHub Actions, CircleCI, Concourse, Docker, Linux (Arch, Amazon, various other flavours), Postgres, MySQL. \\
+    \textbf{Observability} & Datadog, Grafana, CloudWatch, New Relic, Sentry; incident management and on-call design. \\
+    \textbf{Data}          & Athena, Redshift, Mage, ETL pipeline migration. \\
+    \textbf{AI workflow}   & Claude Code in daily workflow; CodeRabbit and Copilot integrated into PR review pipelines; agent-assisted migration and code archaeology. \\
+    \textbf{AI infrastructure} & Local inference via ollama (Qwen3-Coder). MCP servers to GitHub, AWS. Developer tooling for ops workflows. \\
+  \end{tabularx}
+  \vspace{1ex}
+
 \section{\faPieChart}{Experience}
 
   \resumeEntryStart
@@ -170,17 +194,19 @@
     \resumeItemListStart
       \resumeItem {Implemented Okta/Auth0 enterprise SSO.}
       \resumeItem {Updating and migrating data ingestion and processing workflows using Mage and Athena.}
+      \resumeItem {Claude Code daily driver for exploration, diagnostic helper, documentation automation, compressing ramp-up on an unfamiliar codebase within a short contract window.}
     \resumeItemListEnd
   \resumeEntryEnd
   
   \resumeEntryStart
     \resumeEntryTSDL
-      {Basis}{Oct 2024 -- Present}
+      {Basis}{Oct 2024 -- November 2025}
       {Site Reliability Engineer}{Remote}
     \resumeItemListStart
       \resumeItem {Created an incident management plan for a complex production environment that included IoT, mobile, and cloud services components.}
       \resumeItem {Migrated an ECS-based datalake stack to Kubernetes.}
       \resumeItem {Migrated the terraform-based IaC environment from Terraform Cloud to Spacelift.}
+      \resumeItem {Claude Code in daily workflow, Copilot integrated into PR review pipelines to raise baseline review quality and catch regressions earlier.}
     \resumeItemListEnd
   \resumeEntryEnd
   
@@ -190,8 +216,7 @@
       {Senior Platform Engineer}{Remote}
     \resumeItemListStart
       \resumeItem {Wrote automated tooling in Go to traverse hundreds of GitHub repositories to update versions and configuration values.}
-      \resumeItem {Repaired technical debt/broken builds, negotiating with teams to find the correct solution for technical debt/disused workflows.}
-      \resumeItem {Implemented a custom GitHub runner to launch ops tasks in the production environment (database maintenance, new Kafka topics) reducing maintenance time and unblocking developer workflows.}
+      \resumeItem {Implemented a custom GitHub runner to launch ops tasks in the production environment (database maintenance, new Kafka topics), reducing maintenance time and unblocking developer workflows.}
     \resumeItemListEnd
   \resumeEntryEnd
   
@@ -212,10 +237,9 @@
       {Spidertracks}{Apr 2021 -- Dec 2022}
       {Senior Software Engineer}{Remote}
     \resumeItemListStart
-      \resumeItem {Mapped network ingress from Iridium satellites and cellular devices through a maze of legacy infrastructure to mitigate poor characteristics of a Java server under load.}
+      \resumeItem {Mapped network ingress from Iridium satellites and cellular devices through legacy infrastructure to mitigate Java server load issues.}
       \resumeItem {Rebuilt on-call team and ops culture from the ground up after company was acquired.}
-      \resumeItem {Managed a wide variety of AWS infrastructure including EC2, Lambda, RDS, DynamoDB, Kinesis, Redshift, EventBridge, IoT Core.}
-      \resumeItem {Significantly improved the overall observability picture, including centralising scattered elements of New Relic, Grafana, CloudWatch, Sumologic, and Sentry, laying the groundwork for an eventual migration to a "single pane of glass".}
+      \resumeItem {Centralised scattered observability across New Relic, Grafana, CloudWatch, Sumologic, and Sentry, laying groundwork for a single-pane-of-glass migration.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -244,19 +268,7 @@
       {HYPR Innovation}{Feb 2019 -- Sep 2019}
       {Senior Software Engineer (Contract)}{Remote}
     \resumeItemListStart
-      \resumeItem {React, MobX frontend development.}
-      \resumeItem {Lots of microservice development (mostly in Node) leveraging Kafka to process animal data for a large agricorporation.}
-      \resumeItem {Coordinating with a wide variety of teams, each managing their own services, as well as a legacy team working in a completely separate hosted environment.}
-    \resumeItemListEnd
-  \resumeEntryEnd
-
-  \resumeEntryStart
-    \resumeEntryTSDL
-      {Enspiral Dev Academy}{Aug 2018 -- Dec 2018}
-      {Teacher, Software Engineer}{Auckland}
-    \resumeItemListStart
-      \resumeItem {Coached students individually, and taught curriculum at the classroom level.}
-      \resumeItem {Wrote and updated curriculum (React/Node). Ran multi-day exercises in team software development.}
+      \resumeItem {React/MobX frontend and Node/Kafka microservices processing animal data for a large agricorporation.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -265,43 +277,25 @@
       {Hylo}{Mar 2017 -- Aug 2018}
       {Software Engineer (Contract)}{Remote (San Francisco)}
     \resumeItemListStart
-      \resumeItem {Distributed team based out of the San Francisco bay area developing a messaging and collaboration tool for purpose-driven communities.}
-      \resumeItem {Worked particularly on the React Native mobile application. Solved some thorny performance problems and deep-linking bugs.}
+      \resumeItem {React Native mobile app for a distributed SF-based team; performance and deep-linking work.}
     \resumeItemListEnd
   \resumeEntryEnd
 
   \resumeEntryStart
-    \resumeEntryTSDL
-      {Enspiral Dev Academy}{May 2016 -- Mar 2017}
-      {Teacher, Software Engineer (Contract)}{Auckland}
-  \resumeEntryEnd
-
-  \resumeEntryStart
-    \resumeEntryTSDL
-      {Saatchi \& Saatchi}{Feb 2016 -- May 2016}
-      {Software Engineer (Contract)}{Auckland}
-  \resumeEntryEnd
-
-  \resumeEntryStart
-    \resumeEntryTSDL
-      {BKA Digital Outfitters}{Oct 2015 -- Feb 2016}
-      {Software Engineer (Contract)}{Auckland}
-  \resumeEntryEnd
-
-
-  \resumeEntryStart
-    \resumeEntryTSDL
-      {Starship Hospital}{2003 -- 2015}
-      {Paediatric Intensive Care Nurse}{Auckland}
+    \resumeEntryTD
+      {Earlier contract and teaching roles (2015 -- 2018):}{2015 -- 2018}
     \resumeItemListStart
-      \resumeItem {Flight nurse on the PICU transport team, flew to all areas of the country to collect patients. High degree of autonomy and trust in critical circumstances.}
+      \resumeItem {Enspiral Dev Academy, Saatchi \& Saatchi, BKA Digital Outfitters --- React, Node, curriculum design.}
     \resumeItemListEnd
   \resumeEntryEnd
 
   \resumeEntryStart
     \resumeEntryTSDL
-      {Royal Alexandra Hospital for Children}{May 1999 -- May 2003}
-      {Registered Nurse, PICU Nurse}{Sydney}
+      {Paediatric Intensive Care Nurse}{1999 -- 2015}
+      {Starship Hospital (Auckland) \& Children's Hospital at Westmead (Sydney).}{}
+    \resumeItemListStart
+      \resumeItem {PICU flight transport team, ECMO team.}
+    \resumeItemListEnd
   \resumeEntryEnd
 
 \section{\faFlask}{Projects}
@@ -312,9 +306,7 @@
       {Senior Software Engineer (Volunteer)}{Remote}
     \resumeItemListStart
       \resumeItem {Sole developer and platform engineer for Fairground Foundation, working on Bucket, an environment crowdfunding application.}
-      \resumeItem {Wrote a Go API that implements the JSON:API standard using ECS, RDS (Postgres), sqlc, and Chi.}
-      \resumeItem {Built a cross-platform Flutter application implementing a Figma design, using modern state management tools.}
-      \resumeItem {Terraformed the lot using a low-cost strategy to avoid excessive outlays during the pre-launch phase.}
+      \resumeItem {Go, Flutter, Figma, Terraform, AWS. Low-cost strategies for a pre-launch product.}
     \resumeItemListEnd
   \resumeEntryEnd
 
