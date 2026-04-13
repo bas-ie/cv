@@ -1,0 +1,36 @@
+[env]
+# System TeX Live 2023 install (from install-tl bundle)
+_.path = ["/usr/local/texlive/2023/bin/x86_64-linux"]
+
+[tools]
+# tinytex is available as a managed fallback if the system TeX Live is removed.
+# Uncomment to install a project-local distribution via mise.
+# tinytex = "latest"
+
+[tasks.build]
+description = "Build main.pdf with pdflatex via latexmk"
+run = "latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex"
+
+[tasks.build-xe]
+description = "Build with XeLaTeX (fontspec branch of main.tex)"
+run = "latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex"
+
+[tasks.watch]
+description = "Continuous rebuild on save"
+run = "latexmk -pdf -pvc -interaction=nonstopmode main.tex"
+
+[tasks.clean]
+description = "Remove build artefacts (keeps main.pdf)"
+run = "latexmk -c main.tex"
+
+[tasks.clean-all]
+description = "Remove all build artefacts including main.pdf"
+run = "latexmk -C main.tex"
+
+[tasks.publish]
+description = "Build and copy PDF to Rich_Churcher_<year>_CV.pdf"
+run = '''
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+cp main.pdf "Rich_Churcher_$(date +%Y)_CV.pdf"
+echo "Published Rich_Churcher_$(date +%Y)_CV.pdf"
+'''

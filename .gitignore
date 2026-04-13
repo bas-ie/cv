@@ -1,0 +1,18 @@
+# LaTeX build artefacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.xdv
+
+# Keep main.pdf ignored; publish named copies instead
+main.pdf
+
+# Editor/local
+tags
+.mise.local.toml
