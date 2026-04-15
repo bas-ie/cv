@@ -48,14 +48,15 @@
 
 \def \headertype {\doublecol} % \singlecol or \doublecol
 
-\def \entryspacing {-0em}
+\def \entryspacing {0em}
 
 \def \bulletstyle {\faAngleRight}
 
-\definecolor{primary}{HTML}{000000}
-\definecolor{secondary}{HTML}{138a07}
-\definecolor{accent}{HTML}{263238}
-\definecolor{links}{HTML}{003200}
+\definecolor{primary}{HTML}{1a1a1a}
+\definecolor{secondary}{HTML}{2d6a4f}
+\definecolor{accent}{HTML}{52606d}
+\definecolor{muted}{HTML}{8a94a0}
+\definecolor{links}{HTML}{2d6a4f}
 
 \def \linkedin {\linkedinicon \hspace{1em}\href{\linkedinlink}{\linkedintext}}
 \def \phone {\phoneicon \hspace{1em}{\phonetext}}
@@ -80,8 +81,9 @@
 \setlength{\tabcolsep}{0mm}
 
 % sections
-\renewcommand{\section}[2]{\vspace{0.5ex}
-  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{0.5em}#2}}}
+\renewcommand{\section}[2]{\vspace{1.2ex}
+  {\color{secondary}\normalsize#1\hspace{0.8em}\textbf{\MakeUppercase{#2}}}\par\vspace{-0.6ex}
+  {\color{secondary}\rule{\textwidth}{0.4pt}}\vspace{-0.8ex}
 }
 
 % entry start and end, for spacing
@@ -104,8 +106,8 @@
 \newcommand{\resumeEntryTSDL}[4]{
   \vspace{-0.5ex}\item[]
     \begin{tabularx}{0.97\textwidth}{X@{\hspace{5em}}r}
-      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
-      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+      \textbf{\color{primary}#1} & {\firabook\color{muted}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{muted}\small#4} \\
     \end{tabularx}\vspace{-0.9ex}
 }
 
@@ -113,7 +115,7 @@
 \newcommand{\resumeEntryTD}[2]{
   \vspace{-0.5ex}\item[]
     \begin{tabularx}{0.97\textwidth}{X@{\hspace{5em}}r}
-      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textbf{\color{primary}#1} & {\firabook\color{muted}\small#2} \\
     \end{tabularx}\vspace{-0.9ex}
 }
 
@@ -122,9 +124,9 @@
   \begin{tabularx}{\textwidth}{Xr}
     {
       \begin{tabular}[c]{l}
-        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        \fontsize{28}{34}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
           {\textit{\subtitle}}
-      \end{tabular}\vspace{2ex}
+      \end{tabular}\vspace{0.8ex}
     } & {
       \begin{tabular}[c]{l@{\hspace{1em}}l}
         {\small#4} & {\small#1} \\
@@ -140,7 +142,7 @@
   \begin{tabularx}{\textwidth}{Xr}
     {
       \begin{tabular}[b]{l}
-        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        \fontsize{28}{34}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
         {\textit{\subtitle}} % You could add a subtitle here
       \end{tabular}
     } & {
@@ -163,17 +165,14 @@
 
 \section{\faUser}{Profile}
 
-  \vspace{0.5ex}
   \small Senior platform and site reliability engineer with 8+ years shipping and operating production systems on Linux and AWS.
-  \par\vspace{0.5ex}
+  \par\vspace{0.4ex}
   Second career after 14 years as a paediatric intensive care nurse, including flight transport --- I bring clinical incident-response discipline to production operations: calm under load, bias to root cause, triage what matters first.
-  \par\vspace{0.5ex}
+  \par\vspace{0.4ex}
   Self-taught, remote-first, and happiest in small teams where autonomy and pragmatism matter more than process.
-  \vspace{1ex}
 
 \section{\faWrench}{Skills}
 
-  \vspace{0.5ex}
   \begin{tabularx}{\textwidth}{@{}l@{\hspace{1.5em}}X@{}}
     \textbf{Cloud / Infra} & AWS (EC2, ECS, EKS, Lambda, RDS, DynamoDB, Kinesis, IoT Core, EventBridge), Terraform, Spacelift, Kubernetes. \\
     \textbf{Languages}     & Go, Python, TypeScript, Rust, Bash, sundry others. \\
@@ -183,7 +182,6 @@
     \textbf{AI workflow}   & Claude Code in daily workflow; CodeRabbit and Copilot integrated into PR review pipelines; agent-assisted migration and code archaeology. \\
     \textbf{AI infrastructure} & Local inference via ollama (Qwen3-Coder). MCP servers to GitHub, AWS. Developer tooling for ops workflows. \\
   \end{tabularx}
-  \vspace{1ex}
 
 \section{\faPieChart}{Experience}
 
