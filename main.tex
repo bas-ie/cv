@@ -20,6 +20,13 @@
 \fi
 \usepackage{fontawesome}
 \usepackage[sfdefault,light]{FiraSans}
+\usepackage{silence}
+
+% FontAwesome has no "light" weight; LaTeX correctly falls back to medium
+% because FiraSans [light] makes "l" the default series. Silence the
+% cosmetic font-shape warnings since the fallback is what we want.
+\WarningFilter{latexfont}{Font shape `U/fontawesome}
+\WarningFilter{latexfont}{Some font shapes}
 \usepackage{anyfontsize}
 \usepackage{xcolor}
 \usepackage{tabularx}
